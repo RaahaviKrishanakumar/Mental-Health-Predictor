@@ -38,3 +38,7 @@ mental-health-predictor/
 ├── reports/
 ├── requirements.txt
 └── README.md
+
+## Live Demo
+
+[Open Streamlit App](https://mental-health-predictor-mg4gnsqdxvhjvww74aywqz.streamlit.app/)

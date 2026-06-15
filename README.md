@@ -39,6 +39,12 @@ mental-health-predictor/
 ├── requirements.txt
 └── README.md
 
+| Model | F1 Score |
+|---|---:|
+| Logistic Regression | 0.766667 |
+| Random Forest | 0.771654 |
+| XGBoost | 0.763052 |
+
 ## Live Demo
 
 [Open Streamlit App](https://mental-health-predictor-mg4gnsqdxvhjvww74aywqz.streamlit.app/)

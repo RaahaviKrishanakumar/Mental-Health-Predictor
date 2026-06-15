@@ -165,7 +165,7 @@ with tab3:
     - Exploratory data analysis
     - Feature encoding
     - Machine learning model comparison
-    - Logistic Regression final model
+    - Random Forest final model
     - Streamlit dashboard deployment
     """)
 

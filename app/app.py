@@ -59,6 +59,25 @@ with tab1:
         obs_consequence = st.selectbox("Observed Consequences", ["Yes", "No"])
 
     if st.button("Predict"):
+
+        # Engineered features
+        has_support = (
+            int(benefits == 'Yes') +
+            int(wellness_program == 'Yes') +
+            int(seek_help == 'Yes')
+        )
+
+        disclosure_comfort = (
+            int(coworkers == 'Yes') +
+            int(supervisor == 'Yes')
+        )
+
+        age_group = str(pd.cut(
+            [age],
+            bins=[15, 25, 35, 45, 55, 75],
+            labels=['15-25', '26-35', '36-45', '46-55', '55+']
+        )[0])
+
         input_data = pd.DataFrame({
             "Age": [age],
             "Gender": [gender],
@@ -82,9 +101,11 @@ with tab1:
             "mental_health_interview": [mental_health_interview],
             "phys_health_interview": [phys_health_interview],
             "mental_vs_physical": [mental_vs_physical],
-            "obs_consequence": [obs_consequence]
+            "obs_consequence": [obs_consequence],
+            "has_support": [has_support],
+            "disclosure_comfort": [disclosure_comfort],
+            "age_group": [age_group]
         })
-
         input_encoded = pd.get_dummies(input_data)
 
         input_encoded = input_encoded.reindex(columns=model_columns, fill_value=0)
